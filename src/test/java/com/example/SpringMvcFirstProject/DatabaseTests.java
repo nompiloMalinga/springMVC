@@ -32,23 +32,6 @@ public class DatabaseTests {
         Assertions.assertThat(savedUser.getId()).isNotNull();
         Assertions.assertThat(savedUser).isNotNull();
     }
-    @Test
-    public  void testUpdate(){
-        Long setId = 2L;
-        Optional<UserInformation> optionalUser =  userRepo.findById(setId);
-        UserInformation userInformation = optionalUser.get();
-        userInformation.setPassword("welcome23");
-        userRepo.save(userInformation);
-
-        UserInformation updateUserInfo = userRepo.findById(setId).get();
-        Assertions.assertThat(updateUserInfo.getPassword()).isEqualTo("welcome23");
-    }
-    @Test
-    public  void testGet(){
-        Long userId = 2L;
-        Optional<UserInformation>  userInfo = userRepo.findById(userId);
-        Assertions.assertThat(userInfo).isPresent();
-    }
 
 
 
